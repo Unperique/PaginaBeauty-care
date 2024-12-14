@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty & Care - Reservas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navegación -->
+    <nav class="bg-pink-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Beauty & Care</h1>
+            <div class="flex space-x-4">
+                <a href="#inicio" class="hover:text-pink-200">Inicio</a>
+                <a href="#servicios" class="hover:text-pink-200">Servicios</a>
+                <a href="#productos" class="hover:text-pink-200">Productos</a>
+                <a href="#reservar" class="hover:text-pink-200">Reservar</a>
+                <a href="#contacto" class="hover:text-pink-200">Contacto</a>
+                <a href="login.html" class="bg-white text-pink-600 px-4 py-2 rounded-full hover:bg-pink-100">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-pink-100 py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Tu belleza, nuestra pasión</h2>
+            <p class="text-xl text-gray-600 mb-8">Especialistas en diseño de cejas y extensión de pestañas</p>
+            <a href="#reservar" class="bg-pink-600 text-white px-8 py-3 rounded-full hover:bg-pink-700">Reservar Cita</a>
+        </div>
+    </header>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-16 bg-white">
+        <h2 class="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
+        <div id="serviciosList" class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4"></div>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section id="productos" class="py-16 bg-pink-50">
+        <h2 class="text-3xl font-bold text-center mb-12">Nuestros Productos</h2>
+        <div id="productosList" class="grid grid-cols-1 md:grid-cols-4 gap-6 px-4"></div>
+    </section>
+
+    <!-- Formulario de Reserva -->
+    <section id="reservar" class="py-16 bg-pink-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Reservar Cita</h2>
+            <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <form id="formReserva">
+                    <input type="text" id="nombreCliente" placeholder="Nombre Completo" class="w-full p-3 border rounded-lg mb-4" required>
+                    <input type="tel" id="telefonoCliente" placeholder="Número de Teléfono" class="w-full p-3 border rounded-lg mb-4" required>
+                    <input type="text" id="fechaReserva" placeholder="Fecha" class="w-full p-3 border rounded-lg mb-4" required>
+                    <select id="horaReserva" class="w-full p-3 border rounded-lg mb-4" required>
+                        <option value="" disabled selected>Selecciona una hora</option>
+                    </select>
+    
+                    <div class="mb-4">
+                        <p class="font-bold mb-2">Selecciona Servicios:</p>
+                        <label><input type="checkbox" name="servicios" value="Diseño de Cejas"> Diseño de Cejas</label><br>
+                        <label><input type="checkbox" name="servicios" value="Extensión de Pestañas"> Extensión de Pestañas</label><br>
+                        <label><input type="checkbox" name="servicios" value="Lifting de Pestañas"> Lifting de Pestañas</label><br>
+                        <label><input type="checkbox" name="servicios" value="Tratamiento Facial"> Tratamiento Facial</label><br>
+                    </div>
+    
+                    <button type="submit" class="bg-pink-600 text-white px-8 py-3 rounded-full w-full">Confirmar Reserva</button>
+                </form>
+            </div>
+        </div>
+    </section>        
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Beauty & Care. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="reservas.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

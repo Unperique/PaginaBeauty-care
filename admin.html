@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Beauty & Care</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-pink-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Beauty & Care - Admin</h1>
+            <a href="index.html" class="bg-white text-pink-600 px-4 py-2 rounded-full hover:bg-pink-100">Salir</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto py-8 px-4">
+        <div class="flex justify-around mb-4">
+            <button onclick="switchTab('reservas')" class="tab-button">Historial de Reservas</button>
+            <button onclick="switchTab('productos')" class="tab-button">Editar Productos</button>
+            <button onclick="switchTab('servicios')" class="tab-button">Editar Servicios</button>
+        </div>
+
+        <!-- Historial de Reservas -->
+        <div id="reservasContent" class="tab-content">
+            <h2 class="text-3xl font-bold mb-4">Historial de Reservas</h2>
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3">Fecha</th>
+                        <th class="px-6 py-3">Cliente</th>
+                        <th class="px-6 py-3">Servicios</th>
+                        <th class="px-6 py-3">Hora</th>
+                    </tr>
+                </thead>
+                <tbody id="reservasTableBody" class="bg-white divide-y divide-gray-200"></tbody>
+            </table>
+        </div>
+
+        <!-- Editar Productos -->
+        <div id="productosContent" class="tab-content hidden">
+            <h2 class="text-3xl font-bold mb-4">Editar Productos</h2>
+            <button onclick="mostrarFormularioProducto()" class="bg-pink-600 text-white px-4 py-2 rounded mb-4">Agregar Producto</button>
+            <div id="productosList"></div>
+        </div>
+
+        <!-- Editar Servicios -->
+        <div id="serviciosContent" class="tab-content hidden">
+            <h2 class="text-3xl font-bold mb-4">Editar Servicios</h2>
+            <button onclick="mostrarFormularioServicio()" class="bg-pink-600 text-white px-4 py-2 rounded mb-4">Agregar Servicio</button>
+            <div id="serviciosList"></div>
+        </div>
+        
+        <!-- Formulario Modal -->
+        <div id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+                <h3 id="modalTitle" class="text-xl font-bold mb-4"></h3>
+                <form id="itemForm">
+                    <input type="hidden" id="itemType">
+                    <input type="hidden" id="itemId">
+                    <input type="text" id="itemName" placeholder="Nombre" class="w-full p-2 mb-4 border rounded" required>
+                    <textarea id="itemDescription" placeholder="Descripción" class="w-full p-2 mb-4 border rounded" required></textarea>
+                    <input type="number" id="itemPrice" placeholder="Precio" class="w-full p-2 mb-4 border rounded" required>
+                    <input type="file" id="itemImage" class="w-full p-2 mb-4 border rounded">
+                    <input type="hidden" id="itemImageData">
+                    <button type="button" id="saveButton" class="bg-pink-600 text-white px-4 py-2 rounded">Guardar</button>
+                    <button type="button" onclick="cerrarModal()" class="bg-gray-300 text-black px-4 py-2 rounded ml-2">Cancelar</button>
+                </form>
+            </div>
+        </div>      
+                  
+    <!-- Scripts al final del archivo -->
+    <script src="admin.js"></script>
+    <script src="productos.js"></script>
+    <script src="servicios.js"></script>
+    <script src="historialReservas.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
